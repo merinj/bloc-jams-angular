@@ -8,16 +8,16 @@
 
        $stateProvider
           .state('landing', {
-              url: '/',
-              templateUrl: '/templates/landing.html'
+              url: '/app/',
+              templateUrl: '/app/templates/landing.html'
             })
            .state('album', {
-               url: '/album',
-               templateUrl: '/templates/album.html'
+               url: '/app/album',
+               templateUrl: '/app/templates/album.html'
            });
      }
 
      angular
-            .module('blocJams', ['ui.router'])
+            .module('blocjams', ['ui.router'])
             .config(config);
     })();
