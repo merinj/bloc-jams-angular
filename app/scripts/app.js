@@ -9,11 +9,17 @@
        $stateProvider
           .state('landing', {
               url: '/app/',
+              controller: 'LandingCtrl as landing',
               templateUrl: '/app/templates/landing.html'
             })
            .state('album', {
                url: '/app/album',
                templateUrl: '/app/templates/album.html'
+           })
+           .state('collection', {
+               url: '/collection',
+               controller: 'CollectionCtrl as collection',
+               templateUrl: '/templates/collection.html'
            });
      }
 
