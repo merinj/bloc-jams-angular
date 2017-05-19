@@ -2,7 +2,7 @@
      function config($stateProvider, $locationProvider) {
        $locationProvider
          .html5Mode({
-             enabled: true,
+             enabled: false,
              requireBase: false
          });
 
@@ -14,12 +14,13 @@
             })
            .state('album', {
                url: '/app/album',
+               controller: 'AlbumCtrl as album',
                templateUrl: '/app/templates/album.html'
            })
            .state('collection', {
-               url: '/collection',
+               url: '/app/collection',
                controller: 'CollectionCtrl as collection',
-               templateUrl: '/templates/collection.html'
+               templateUrl: '/app/templates/collection.html'
            });
      }
 
