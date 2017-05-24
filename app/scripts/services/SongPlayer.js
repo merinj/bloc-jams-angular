@@ -10,6 +10,17 @@
           var currentBuzzObject = null;
 
 /**
+* @function stopSong
+* @desc stops playing song and sets song.playing as null
+* @param {Object} song
+*/
+
+        var stopSong = function(song) {
+            currentBuzzObject.stop();
+            SongPlayer.currentSong.playing = null;
+          };
+
+/**
  * @function setSong
  * @desc Stops currently playing song and loads new audio file as currentBuzzObject
  * @param {Object} song
@@ -36,6 +47,7 @@
         song.playing = true;
       };
 
+
 /**
 * @function getSongIndex
 * @desc gets the index of the song
@@ -45,6 +57,7 @@
   var getSongIndex = function(song) {
      return currentAlbum.songs.indexOf(song);
  };
+
 /**
 * @desc Active song object from list of songs
 * @type {Object}
@@ -80,24 +93,42 @@
           };
 /**
  * @function SongPlayer.previous
- * @desc gets the index of the previous song
+ * @desc plays the previous song
  */
     SongPlayer.previous = function() {
       var currentSongIndex = getSongIndex(SongPlayer.currentSong);
       currentSongIndex--;
 
       if (currentSongIndex < 0) {
-        currentBuzzObject.stop();
-        SongPlayer.currentSong.playing = null;
+        stopSong(song);
+
       } else {
            var song = currentAlbum.songs[currentSongIndex];
            setSong(song);
            playSong(song);
        }
     };
-    return SongPlayer;
 
-    }
+/**
+ * @function SongPlayer.next
+ * @desc plays the next song
+ */
+
+     SongPlayer.next= function() {
+       var currentSongIndex = getSongIndex(SongPlayer.currentSong);
+       currentSongIndex++;
+       if (currentSongIndex > 5) {
+         stopSong(song);
+       } else {
+            var song = currentAlbum.songs[currentSongIndex];
+            setSong(song);
+            playSong(song);
+          }
+        };
+
+  return SongPlayer;
+
+  }
 
      angular
          .module('blocjams')
