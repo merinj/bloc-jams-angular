@@ -42,7 +42,6 @@
                 };
 
     var notifyOnChange = function(newValue) {
-      console.log("notify on change function is called");
       if (typeof scope.onChange === 'function') {
       scope.onChange({value: newValue});
       }

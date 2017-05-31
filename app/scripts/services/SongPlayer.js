@@ -79,6 +79,12 @@
          */
                SongPlayer.currentTime = null;
 
+       /**
+        * @desc Current playback time (in seconds) of currently playing song
+        * @type {Number}
+        */
+              SongPlayer.volume= 80;       
+
         /**
         * @function SongPlayer.play
         * @desc Plays a song when song is selected in the player bar
@@ -137,6 +143,17 @@
                   var song = currentAlbum.songs[currentSongIndex];
                   setSong(song);
                   playSong(song);
+                }
+            };
+
+            /**
+             * @function setVolume
+             * @desc Set volume of the currently playing song
+             * @param {Number} volume
+             */
+              SongPlayer.setVolume= function(volume) {
+                if (currentBuzzObject) {
+                 currentBuzzObject.setVolume(volume);
                 }
             };
 
